@@ -1,4 +1,5 @@
 # Copyright (C) 2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,23 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#####################################################################""
-# Provider
+config {
+  module = false
+  force = false
+  disabled_by_default = false
 
-variable "project" {
-  type        = string
-  description = "The project in which the resource belongs"
+  ignore_module = {
+  }
+
 }
 
-############################################################################
-# Workload identity
-
-variable "namespace" {
-  type        = string
-  description = "The Kubernetes namespace"
-}
-
-variable "service_account" {
-  type        = string
-  description = "The Kubernetes service account"
+plugin "aws" {
+  enabled = true
 }
